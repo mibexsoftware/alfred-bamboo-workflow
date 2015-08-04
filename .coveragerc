@@ -1,0 +1,12 @@
+[run]
+omit =
+       workflow/test/*
+       pavement.py
+       *__init__.py
+       workflow/src/lib/*
+       */python?.?/*
+       */lib-python/?.?/*.py
+       */lib_pypy/_*.py
+       */site-packages/ordereddict.py
+       */site-packages/nose/*
+       */unittest2/*

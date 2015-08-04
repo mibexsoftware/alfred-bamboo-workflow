@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>ch.mibex.bamboo.alfred-workflow</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>402AC02A-801E-4177-8757-DF81C5CB7705</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8C9B4315-1D89-4209-AE0E-0768D0F2D6C3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>875CA640-69A5-4A45-A0F5-B6FF9C1BC05A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A1DB94F3-D97B-4348-9288-1872F81DA7C6</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>402AC02A-801E-4177-8757-DF81C5CB7705</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>E951972D-5C2C-487D-BE76-C6C160CCBE69</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>A1DB94F3-D97B-4348-9288-1872F81DA7C6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8C9B4315-1D89-4209-AE0E-0768D0F2D6C3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>E951972D-5C2C-487D-BE76-C6C160CCBE69</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8C9B4315-1D89-4209-AE0E-0768D0F2D6C3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>F08086A0-5EE3-4B3F-954C-48CF14E19989</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>875CA640-69A5-4A45-A0F5-B6FF9C1BC05A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Mibex Software GmbH</string>
+	<key>description</key>
+	<string>Search for Bamboo projects, plans, build results and more</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Atlassian Bamboo</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python -msrc.bamboo_workflow "{query}" --exec --cmd
+
+# In case you are experiencing unsolveable issues,
+# you can generate a log file to help me. Modify the
+# first line here so it looks like this:
+# python -msrc.bamboo_workflow "{query}" --exec --cmd | tee ~/Desktop/alfred-bamboo-workflow-commit.log</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A1DB94F3-D97B-4348-9288-1872F81DA7C6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python -msrc.bamboo_workflow "{query}" --exec
+
+# In case you are experiencing unsolveable issues,
+# you can generate a log file to help me. Modify the
+# first line here so it looks like this:
+# python -msrc.bamboo_workflow "{query}" --exec | tee ~/Desktop/alfred-bamboo-workflow-commit.log</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>402AC02A-801E-4177-8757-DF81C5CB7705</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>bamboo</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string>python -msrc.bamboo_workflow "{query}"
+
+# In case you are experiencing unsolveable issues,
+# you can generate a log file to help me. Modify the
+# first line here so it looks like this:
+# python -msrc.bamboo_workflow "{query}" | tee ~/Desktop/alfred-bamboo-workflow.log</string>
+				<key>subtext</key>
+				<string>Search for Bamboo projects, plans, build results and more</string>
+				<key>title</key>
+				<string>Atlassian Bamboo Workflow</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>875CA640-69A5-4A45-A0F5-B6FF9C1BC05A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Atlassian Bamboo</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>8C9B4315-1D89-4209-AE0E-0768D0F2D6C3</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>F08086A0-5EE3-4B3F-954C-48CF14E19989</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python -msrc.bamboo_workflow "{query}" --exec --shift
+
+# In case you are experiencing unsolveable issues,
+# you can generate a log file to help me. Modify the
+# first line here so it looks like this:
+# python -msrc.bamboo_workflow "{query}" --exec --shift | tee ~/Desktop/alfred-bamboo-workflow-commit.log</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>E951972D-5C2C-487D-BE76-C6C160CCBE69</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Alfred Workflow for Atlassian Bamboo
+
+Search for Bamboo projects, plans, build results and more.
+
+GitHub: https://github.com/mibexsoftware/alfred-bamboo-workflow
+
+This workflow, excluding the Atlassian Bamboo logo and the used icons, is released under the MIT Licence.
+
+Thanks to Dean Jackson for building the awesome Python library Alfred Workflow. Also thanks to Ian Paterson for the awesome Wunderlist workflow which is one of the nicest menu-based Alfred workflows we’ve seen so far and which has inspired our workflow deeply.</string>
+	<key>uidata</key>
+	<dict>
+		<key>402AC02A-801E-4177-8757-DF81C5CB7705</key>
+		<dict>
+			<key>ypos</key>
+			<real>120</real>
+		</dict>
+		<key>875CA640-69A5-4A45-A0F5-B6FF9C1BC05A</key>
+		<dict>
+			<key>ypos</key>
+			<real>120</real>
+		</dict>
+		<key>8C9B4315-1D89-4209-AE0E-0768D0F2D6C3</key>
+		<dict>
+			<key>ypos</key>
+			<real>120</real>
+		</dict>
+		<key>A1DB94F3-D97B-4348-9288-1872F81DA7C6</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>E951972D-5C2C-487D-BE76-C6C160CCBE69</key>
+		<dict>
+			<key>ypos</key>
+			<real>230</real>
+		</dict>
+		<key>F08086A0-5EE3-4B3F-954C-48CF14E19989</key>
+		<dict>
+			<key>ypos</key>
+			<real>120</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://www.mibexsoftware.com</string>
+</dict>
+</plist>
