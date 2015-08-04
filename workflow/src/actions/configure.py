@@ -105,8 +105,8 @@ class ConfigureWorkflowAction(BambooWorkflowAction):
                     print('Update of workflow finished')
                 else:
                     print('You already have the latest workflow version')
-            except Exception:
-                print('Update of workflow failed')
+            except Exception, e:
+                print('Update of workflow failed: {}'.format(str(e)))
 
         call_alfred('bamboo:config')
 

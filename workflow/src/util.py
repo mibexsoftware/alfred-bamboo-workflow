@@ -2,7 +2,7 @@
 from HTMLParser import HTMLParser
 import subprocess
 
-from src import HELP_URL
+from src import HELP_URL, __version__
 from src.lib.workflow import Workflow
 
 # inspired by https://github.com/idpaterson/alfred-wunderlist-workflow
@@ -16,7 +16,8 @@ def workflow():
             help_url=HELP_URL,
             update_settings={
                 'github_slug': 'mibexsoftware/alfred-bamboo-workflow',
-                'frequency': 1
+                'frequency': 1,
+                'version': __version__
             }
         )
     return _workflow
