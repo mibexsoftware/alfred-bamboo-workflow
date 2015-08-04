@@ -13,8 +13,7 @@ Alfred workflow to search for Bamboo projects, plans, build results and more in 
 
 ## Download ##
 
-Get this Bamboo workflow for Alfred from [GitHub][gh-releases] or [Packal][packal-page]. 
-See this [guide][alfred-workflow-installation] on how to install a workflow in Alfred (basically, you just have to open the file by double-clicking on it).
+Get it from the [releases][releases] tab and download the `atlassian-bamboo-workflow-x.x.x.alfredworkflow` file. Install it by opening the downloaded file.
 
 
 ## Usage ##
@@ -50,6 +49,7 @@ This workflow, excluding the Atlassian Bamboo logo and the Google material icons
 
 
 [bamboo]: http://www.atlassian.com/bamboo
+[releases]: https://github.com/mibexsoftware/alfred-bamboo-workflow/releases
 [mibexlogo]: https://www.mibexsoftware.com/wp-content/uploads/2015/06/mibex.png
 [wunderlist]: https://github.com/idpaterson/alfred-wunderlist-workflow
 [build-status-icons]: https://www.iconfinder.com/iconsets/function_icon_set
