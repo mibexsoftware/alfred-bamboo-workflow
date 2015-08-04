@@ -123,7 +123,7 @@ class BambooFilterableMenu(object):
         if not entities:
             # only do a REST call in case there is no query given because only in that case it is likely that there
             # is a problem with the connection to Bamboo and we would like to prevent doing slow calls in here
-            if not query and try_bamboo_connection():
+            if query or (not query and try_bamboo_connection()):
                 workflow().add_item('No matching {} found.'.format(self.entity_name), icon=icons.ERROR)
         else:
             for e in entities:
