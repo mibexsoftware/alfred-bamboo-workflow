@@ -2,7 +2,7 @@
 from src import icons
 from src.lib.requests.exceptions import SSLError
 
-from src.lib.workflow import (PasswordNotFound, __version__)
+from src.lib.workflow import PasswordNotFound
 from src.lib.workflow.background import run_in_background
 from src.lib.workflow.background import is_running
 
@@ -42,16 +42,6 @@ def build_bamboo_facade():
         bamboo_pw = None
     verify_cert = workflow().settings.get(VERIFY_CERT, 'false') == 'true'
     return BambooFacade(bamboo_host, bamboo_user, bamboo_pw, verify_cert)
-
-
-def notify_if_upgrade_available():
-    if workflow().update_available:
-        v = workflow().cached_data('__workflow_update_status', max_age=0)['version']
-        workflow().add_item('An update is available!',
-                            'Update the workflow from version {} to {}'.format(__version__, v),
-                            arg=':config update',
-                            valid=True,
-                            icon=icons.UPDATE)
 
 
 def _notify_if_cache_update_in_progress():

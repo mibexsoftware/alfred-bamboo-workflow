@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from src.actions import notify_if_upgrade_available, HOST_URL
+from src import icons, __version__
+from src.actions import HOST_URL
 from src.actions.branches import BranchesWorkflowAction
 from src.actions.configure import ConfigureWorkflowAction
 from src.actions.help import HelpWorkflowAction
@@ -35,5 +36,15 @@ def route(args):  # e.g., args = ":config sethost http://localhost,--exec"
         handler().execute(command, cmd_pressed='--cmd' in args, shift_pressed='--shift' in args)
     else:  # show menu
         handler().menu(command)
-        notify_if_upgrade_available()
+        _notify_if_upgrade_available()
         workflow().send_feedback()
+
+
+def _notify_if_upgrade_available():
+    if workflow().update_available:
+        new_version = workflow().cached_data('__workflow_update_status', max_age=0)['version']
+        workflow().add_item('An update is available!',
+                            'Update the workflow from version {} to {}'.format(__version__, new_version),
+                            arg=':config update',
+                            valid=True,
+                            icon=icons.UPDATE)
