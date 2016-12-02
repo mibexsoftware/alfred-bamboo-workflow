@@ -14,7 +14,7 @@ class Branch(EqualityMixin):
     def from_json(cls, json, plan_key):
         branch = cls(json['searchEntity']['key'],
                      json['searchEntity']['branchName'],
-                     json['searchEntity']['description'],
+                     json['searchEntity']['description'] if 'description' in json['searchEntity'] else '',
                      plan_key)
         return branch
 
