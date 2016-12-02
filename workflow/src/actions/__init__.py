@@ -52,22 +52,31 @@ def _notify_if_cache_update_in_progress():
                             icon=icons.INFO)
 
 
-def try_bamboo_connection():
+def try_bamboo_connection(show_success=True):
     try:
         bamboo_facade = build_bamboo_facade()
         bamboo_facade.is_running()
+        if show_success:
+            workflow().add_item('Congratulations, connection to Bamboo was successful!', icon=icons.OK)
+        return True
     except SSLError:
         workflow().add_item('SSL error: Try with certificate verification disabled', icon=icons.ERROR)
+        return False
     except Exception, e:
         workflow().add_item('Error when connecting Bamboo server', str(e), icon=icons.ERROR)
-    else:
-        workflow().add_item('Congratulations, connection to Bamboo was successful!', icon=icons.OK)
+        return False
 
 
 def get_data_from_cache(cache_key, update_interval):
     # Set `data_func` to None, as we don't want to update the cache in this script and `max_age` to 0
     # because we want the cached data regardless of age
-    data = workflow().cached_data(cache_key, None, max_age=0)
+    try:
+        data = workflow().cached_data(cache_key, None, max_age=0)
+    except Exception:
+        # this might happen when there are incompatible model changes and the pickle cache cannot be deserialized
+        # anymore => in this case it is better to clear the cache and to re-trigger data syncing
+        workflow().clear_cache()
+        data = []
 
     # Start update script if cached data is too old (or doesn't exist)
     if not workflow().cached_data_fresh(cache_key, max_age=update_interval):
@@ -113,7 +122,7 @@ class BambooFilterableMenu(object):
         if not entities:
             # only do a REST call in case there is no query given because only in that case it is likely that there
             # is a problem with the connection to Bamboo and we would like to prevent doing slow calls in here
-            if query or (not query and try_bamboo_connection()):
+            if query or (not query and try_bamboo_connection(show_success=False)):
                 workflow().add_item('No matching {} found.'.format(self.entity_name), icon=icons.ERROR)
         else:
             for e in entities:
