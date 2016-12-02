@@ -346,7 +346,7 @@ if __name__ == '__main__':  # pragma: nocover
     import sys
 
     def show_help():
-        print('Usage : sync.py (check|install) github_slug version')
+        print('Usage : update.py (check|install) github_slug version')
         sys.exit(1)
 
     if len(sys.argv) != 4:

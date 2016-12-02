@@ -15,7 +15,7 @@ options(
     setup=dict(
         name="Alfred-Bamboo-Workflow",
         packages=['workflow'],
-        version="1.0.0",
+        version=open('workflow/src/version').readline(),
         url="https://mibexsoftware.com",
         author="Mibex Software GmbH",
         author_email="support@mibexsoftware.com",
@@ -85,7 +85,7 @@ def coverage():
 def install_libs():
     """Install shipped workflow libs."""
     sh("pip install --target=workflow/src/lib requests==2.7.0")
-    sh("pip install --target=workflow/src/lib Alfred-Workflow==1.12")
+    sh("pip install --target=workflow/src/lib Alfred-Workflow==1.13")
 
 
 @task
