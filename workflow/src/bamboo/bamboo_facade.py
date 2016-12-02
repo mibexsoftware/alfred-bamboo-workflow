@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import iso8601
 from src.bamboo.branch import Branch
 from src.bamboo.build_result import BuildResult
 from src.bamboo.plan import Plan
@@ -50,11 +51,14 @@ class BambooFacade(object):
                                        result_name='searchResults')]
 
     def status(self):
-        return [BuildResult.from_json(json) for json in self._page(url=self._bamboo_url('/result'),
-                                                                   params={'expand': 'results.result.artifacts',
-                                                                           'max-result': 100},
-                                                                   result_name='result',
-                                                                   prefix='results')]
+        build_results = [BuildResult.from_json(json) for json in self._page(url=self._bamboo_url('/result'),
+                                                                            params={
+                                                                                'expand': 'results.result.artifacts',
+                                                                                'max-result': 100},
+                                                                            result_name='result',
+                                                                            prefix='results')]
+        build_results.sort(key=lambda x: iso8601.parse_date(x.completed_date))
+        return build_results
 
     def is_running(self):
         # we have to use /info instead of /server because the latter does not need authentication which would not
