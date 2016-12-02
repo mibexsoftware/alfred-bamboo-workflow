@@ -24,7 +24,11 @@ def workflow():
 
 
 def call_alfred(args):
-    subprocess.call(['/usr/bin/env', 'osascript', 'launcher/launch_alfred.scpt', args])
+    alfred_major_version = workflow().alfred_env['version'][0]
+    subprocess.call([
+        '/usr/bin/env', 'osascript', '-l', 'JavaScript',
+        'launcher/launch_alfred.scpt', args, alfred_major_version
+    ])
 
 
 class HtmlStripper(HTMLParser):
