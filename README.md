@@ -1,11 +1,13 @@
 # Alfred Workflow for Atlassian Bamboo #
 
+## [Download latest release][latestrelease]
+
 [![Build Status](http://img.shields.io/travis/mibexsoftware/alfred-bamboo-workflow.svg?style=flat-square)](https://travis-ci.org/mibexsoftware/alfred-bamboo-workflow)
 [![Latest Version](http://img.shields.io/github/release/mibexsoftware/alfred-bamboo-workflow.svg?style=flat-square)](https://github.com/mibexsoftware/alfred-bamboo-workflow/releases)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://mibexsoftware.mit-license.org/2015)
 
 
-Alfred workflow to search for Bamboo projects, plans, build results and more in [Atlassian Bamboo][bamboo].
+Alfred workflow to search for projects, plans, build results and more in [Atlassian Bamboo][bamboo].
 
 
 ![][screencast]
@@ -49,6 +51,7 @@ This workflow, excluding the Atlassian Bamboo logo and the Google material icons
 
 
 [bamboo]: http://www.atlassian.com/bamboo
+[latestrelease]: https://github.com/mibexsoftware/alfred-bamboo-workflow/releases/latest
 [releases]: https://github.com/mibexsoftware/alfred-bamboo-workflow/releases
 [mibexlogo]: https://www.mibexsoftware.com/wp-content/uploads/2015/06/mibex.png
 [wunderlist]: https://github.com/idpaterson/alfred-wunderlist-workflow
