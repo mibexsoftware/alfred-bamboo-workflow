@@ -22,7 +22,7 @@ options(
         license="MIT"
     ),
     virtualenv=Bunch(
-        packages_to_install=['httpretty', 'iso8601', 'wheel', 'virtualenv', 'flake8', 'nose', 'mock', 'coveralls'],
+        packages_to_install=['httpretty', 'wheel', 'virtualenv', 'flake8', 'nose', 'mock', 'coveralls'],
         script_name='bootstrap.py',
         dest_dir='venv'
     )
@@ -85,6 +85,7 @@ def coverage():
 def install_libs():
     """Install shipped workflow libs."""
     sh("pip install --target=workflow/src/lib requests==2.7.0")
+    sh("pip install --target=workflow/src/lib iso8601==0.1.11")
     sh("pip install --target=workflow/src/lib Alfred-Workflow==1.24")
 
 
