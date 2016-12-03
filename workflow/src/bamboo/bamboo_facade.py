@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import iso8601
 from src.bamboo.branch import Branch
 from src.bamboo.build_result import BuildResult
 from src.bamboo.plan import Plan
@@ -7,7 +6,7 @@ from src.bamboo.project import Project
 from src.bamboo.trigger_result import TriggerResult
 
 from src.lib import requests
-
+from src.lib import iso8601
 
 # We use requests library for HTTP connections because workflow.web does not verify SSL certificates!
 # see http://www.deanishe.net/alfred-workflow/api/web.html
@@ -57,7 +56,7 @@ class BambooFacade(object):
                                                                                 'max-result': 100},
                                                                             result_name='result',
                                                                             prefix='results')]
-        build_results.sort(key=lambda x: iso8601.parse_date(x.completed_date))
+        build_results.sort(key=lambda x: iso8601.parse_date(x.completed_date), reverse=True)
         return build_results
 
     def is_running(self):
