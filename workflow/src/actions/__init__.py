@@ -10,9 +10,9 @@ from src.bamboo.bamboo_facade import BambooFacade
 from src.util import workflow
 
 # How often to check for new / updated Bamboo data
-UPDATE_INTERVAL_PROJECTS = 8 * 60 * 60  # every 8 hours
-UPDATE_INTERVAL_PLANS = 2 * 60 * 60  # every 2 hours
-UPDATE_INTERVAL_STATUS = 30 * 60  # every 30 minutes
+UPDATE_INTERVAL_PROJECTS = 24 * 60 * 60  # every day
+UPDATE_INTERVAL_PLANS = 8 * 60 * 60  # every 8 hours
+UPDATE_INTERVAL_STATUS = 10 * 60  # every 10 minutes
 
 # By default, Workflow.filter() will match and return anything that contains all the characters in
 # query in the same order, regardless of case. So we want to restrict this by using a min score
@@ -128,7 +128,7 @@ class BambooFilterableMenu(object):
             for e in entities:
                 self._add_to_result_list(e)
 
-        self._add_item_after_last_result()
+        self.__add_item_after_last_result()
 
     def _get_result_filter(self):
         raise NotImplementedError
@@ -145,8 +145,5 @@ class BambooFilterableMenu(object):
     def _add_to_result_list(self, entity):
         raise NotImplementedError
 
-    def _add_item_after_last_result(self):
-        workflow().add_item(
-            'Main menu',
-            autocomplete='', icon=icons.GO_BACK
-        )
+    def __add_item_after_last_result(self):
+        workflow().add_item('Main menu', autocomplete='', icon=icons.GO_BACK)

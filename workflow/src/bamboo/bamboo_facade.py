@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from src.bamboo.branch import Branch
 from src.bamboo.build_result import BuildResult
+from src.bamboo.dashboard import DashBoard
 from src.bamboo.plan import Plan
 from src.bamboo.project import Project
 from src.bamboo.trigger_result import TriggerResult
@@ -49,15 +50,25 @@ class BambooFacade(object):
                                                'max-result': 100},
                                        result_name='searchResults')]
 
-    def status(self):
+    def results(self):
         build_results = [BuildResult.from_json(json) for json in self._page(url=self._bamboo_url('/result'),
                                                                             params={
                                                                                 'expand': 'results.result.artifacts',
-                                                                                'max-result': 100},
+                                                                                'max-result': 100
+                                                                            },
                                                                             result_name='result',
                                                                             prefix='results')]
         build_results.sort(key=lambda x: iso8601.parse_date(x.completed_date), reverse=True)
         return build_results
+
+    def dashboard(self):
+        json = self._get('{}/build/admin/ajax/getDashboardSummary.action'.format(self._base_url), params={})
+        dashboard = DashBoard.from_json(json)
+        return dashboard
+
+    def stop_build(self, plan_result_key):
+        self._delete(self._bamboo_url('/queue/{}'.format(plan_result_key)),
+                     params={'stage': '', 'executeAllStages': 'true'})
 
     def is_running(self):
         # we have to use /info instead of /server because the latter does not need authentication which would not
@@ -79,11 +90,16 @@ class BambooFacade(object):
 
     def _get(self, url, params):
         response = requests.get(url, params=params, headers=self.JSON_HEADER, **(self._http_options()))
-        response.raise_for_status()
-        return response.json()
+        return self.__get_json_response(response)
 
     def _post(self, url, params):
         response = requests.post(url, params=params, headers=self.JSON_HEADER, **(self._http_options()))
+        return self.__get_json_response(response)
+
+    def _delete(self, url, params):
+        requests.delete(url, params=params, headers=self.JSON_HEADER, **(self._http_options()))
+
+    def __get_json_response(self, response):
         response.raise_for_status()
         return response.json()
 

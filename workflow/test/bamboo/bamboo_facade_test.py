@@ -84,7 +84,7 @@ class TestBambooFacade(TestCase):
         # GIVEN
         self._mock_status_rest_call()
         # WHEN
-        build_results = self.bamboo_facade.status()
+        build_results = self.bamboo_facade.results()
         # THEN
         self.assertEquals([BuildResult(build_state='Successful',
                                        build_number=14,
@@ -96,7 +96,8 @@ class TestBambooFacade(TestCase):
                                        plan_key='MIRA-RSS',
                                        plan_name='Mira - Activity Streams for Stash',
                                        artifact_href='http://localhost:7990/bamboo/browse/MIRA-RSS-14/artifact/shared/Activity-Streams-for-Stash/target',
-                                       link='http://localhost:7990/bamboo/rest/api/latest/result/MIRA-RSS-14'),
+                                       link='http://localhost:7990/bamboo/rest/api/latest/result/MIRA-RSS-14',
+                                       completed_date='2015-07-21T15:32:31.000+02:00'),
                            BuildResult(build_state='Failed',
                                        build_number=7,
                                        build_result_key='MIRA-BEAUTIFUL-7',
@@ -107,8 +108,9 @@ class TestBambooFacade(TestCase):
                                        plan_key='MIRA-BEAUTIFUL',
                                        plan_name='Mira - Beautilful Math for Confluence',
                                        artifact_href='',
-                                       link='http://localhost:7990/bamboo/rest/api/latest/result/MIRA-BEAUTIFUL-7')],
-                          build_results)
+                                       link='http://localhost:7990/bamboo/rest/api/latest/result/MIRA-BEAUTIFUL-7',
+                                       completed_date='2015-07-14T16:13:29.000+02:00')
+                           ], build_results)
 
     @httpretty.activate
     def test_is_running(self):

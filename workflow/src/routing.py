@@ -7,16 +7,18 @@ from src.actions.help import HelpWorkflowAction
 from src.actions.index import IndexWorkflowAction
 from src.actions.plans import PlanWorkflowAction
 from src.actions.projects import ProjectWorkflowAction
-from src.actions.status import StatusWorkflowAction
+from src.actions.status import ResultsWorkflowAction
+from src.actions.dashboard import DashboardWorkflowAction
 from src.util import workflow, call_alfred
 
 WORKFLOW_ACTIONS = {
-    ':config':   ConfigureWorkflowAction,
-    ':projects': ProjectWorkflowAction,
-    ':plans':    PlanWorkflowAction,
-    ':branches': BranchesWorkflowAction,
-    ':status':   StatusWorkflowAction,
-    ':help':     HelpWorkflowAction
+    ':config':    ConfigureWorkflowAction,
+    ':dashboard': DashboardWorkflowAction,
+    ':projects':  ProjectWorkflowAction,
+    ':plans':     PlanWorkflowAction,
+    ':branches':  BranchesWorkflowAction,
+    ':results':   ResultsWorkflowAction,
+    ':help':      HelpWorkflowAction
 }
 
 def route(args):  # e.g., args = ":config sethost http://localhost,--exec"

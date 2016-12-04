@@ -7,6 +7,12 @@ from src.util import workflow
 class IndexWorkflowAction(BambooWorkflowAction):
     def menu(self, args):
         workflow().add_item(
+            'Bamboo dashboard',
+            'See the status of queued and running builds and your build agents',
+            autocomplete=':dashboard ',
+            icon=icons.STATUS
+        )
+        workflow().add_item(
             'Search for Bamboo projects',
             'Search for projects and open the project page in your default browser',
             autocomplete=':projects ',
@@ -19,9 +25,9 @@ class IndexWorkflowAction(BambooWorkflowAction):
             icon=icons.PLANS
         )
         workflow().add_item(
-            'Bamboo Build status',
-            'Get the build status of your plans, download artifacts or trigger a rebuild',
-            autocomplete=':status ',
+            'Bamboo build results',
+            'Get the build results of your plans, download artifacts or trigger a rebuild',
+            autocomplete=':results ',
             icon=icons.STATUS
         )
         workflow().add_item(

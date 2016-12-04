@@ -5,12 +5,12 @@ from src import icons
 from src.util import workflow, strip_tags
 
 
-class StatusFilterableMenu(BambooFilterableMenu):
+class ResultsFilterableMenu(BambooFilterableMenu):
     def __init__(self, args):
-        super(StatusFilterableMenu, self).__init__(entity_name='build results',
-                                                   update_interval=UPDATE_INTERVAL_STATUS,
-                                                   cache_key=STATUS_CACHE_KEY,
-                                                   args=args)
+        super(ResultsFilterableMenu, self).__init__(entity_name='build results',
+                                                    update_interval=UPDATE_INTERVAL_STATUS,
+                                                    cache_key=STATUS_CACHE_KEY,
+                                                    args=args)
 
     def _add_to_result_list(self, build_result):
         build_result_info = u'{} / #{}'.format(build_result.plan_name, str(build_result.build_number))
@@ -25,7 +25,7 @@ class StatusFilterableMenu(BambooFilterableMenu):
                                 u'shift': u'Trigger build execution for this plan'
                             },  # `cmd``, ``ctrl``, ``shift``, ``alt`` and ``fn``
                             largetext=build_result_info,
-                            arg=':status {} {}'.format(build_result.build_result_key, build_result.plan_key),
+                            arg=':results {} {}'.format(build_result.build_result_key, build_result.plan_key),
                             copytext='{}/browse/{}'.format(workflow().settings.get(HOST_URL),
                                                            build_result.build_result_key),
                             valid=True)
@@ -45,9 +45,9 @@ class StatusFilterableMenu(BambooFilterableMenu):
         return sorted(build_results, key=lambda br: br.is_failed(), reverse=True) if build_results else []
 
 
-class StatusWorkflowAction(BambooWorkflowAction):
+class ResultsWorkflowAction(BambooWorkflowAction):
     def menu(self, args):
-        status_workflow = StatusFilterableMenu(args)
+        status_workflow = ResultsFilterableMenu(args)
         return status_workflow.run()
 
     def execute(self, args, cmd_pressed, shift_pressed):

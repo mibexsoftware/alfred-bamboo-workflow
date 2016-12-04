@@ -27,11 +27,11 @@ def _fetch_bamboo_data_if_necessary(bamboo_facade):
     plans = workflow().cached_data(PLANS_CACHE_KEY, wrapper_plans, max_age=UPDATE_INTERVAL_PLANS)
     workflow().logger.debug('{} plans cached'.format(len(plans)))
 
-    def wrapper_status():
-        return bamboo_facade.status()
+    def wrapper_results():
+        return bamboo_facade.results()
 
-    status = workflow().cached_data(STATUS_CACHE_KEY, wrapper_status, max_age=UPDATE_INTERVAL_STATUS)
-    workflow().logger.debug('{} build results cached'.format(len(status)))
+    results = workflow().cached_data(STATUS_CACHE_KEY, wrapper_results, max_age=UPDATE_INTERVAL_STATUS)
+    workflow().logger.debug('{} build results cached'.format(len(results)))
 
 
 def main(wf):

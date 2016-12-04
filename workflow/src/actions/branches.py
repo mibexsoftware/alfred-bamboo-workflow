@@ -23,9 +23,9 @@ class BranchesFilterableMenu(BambooFilterableMenu):
         return lambda b: u' '.join([b.name, b.description])
 
     def _transform_from_cache(self, plans, q):
-        return self._find_branches_matching_plan(plans, q)
+        return self.__find_branches_matching_plan(plans, q)
 
-    def _find_branches_matching_plan(self, plans, q):
+    def __find_branches_matching_plan(self, plans, q):
         branches = next((p.branches for p in plans if p.plan_key == q), [])
         return branches
 
