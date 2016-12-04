@@ -49,7 +49,7 @@ class DashboardWorkflowAction(BambooWorkflowAction):
         else:
             return icons.BUILD_UNKNOWN
 
-    def execute(self, args, cmd_pressed, shift_pressed):
+    def execute(self, args, ctrl_pressed, shift_pressed):
         import webbrowser
         host_url = workflow().settings.get(HOST_URL)
         if args[-1] == 'viewAgents':

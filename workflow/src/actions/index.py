@@ -14,13 +14,13 @@ class IndexWorkflowAction(BambooWorkflowAction):
         )
         workflow().add_item(
             'Search for Bamboo projects',
-            'Search for projects and open the project page in your default browser',
+            'Search for projects and open the project in your browser',
             autocomplete=':projects ',
             icon=icons.PROJECTS
         )
         workflow().add_item(
             'Search for Bamboo plans',
-            'Search for plans, go to your plan branches and open them in your default browser',
+            'Search for plans, browse the plan branches and open or trigger them',
             autocomplete=':plans ',
             icon=icons.PLANS
         )

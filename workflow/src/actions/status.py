@@ -21,7 +21,7 @@ class ResultsFilterableMenu(BambooFilterableMenu):
                                                                         build_result.relative_time,
                                                                         strip_tags(build_result.build_reason)),
                             modifier_subtitles={
-                                u'cmd': u'Open page of artifacts to download',
+                                u'ctrl': u'Open page of artifacts to download',
                                 u'shift': u'Trigger build execution for this plan'
                             },  # `cmd``, ``ctrl``, ``shift``, ``alt`` and ``fn``
                             largetext=build_result_info,
@@ -50,11 +50,10 @@ class ResultsWorkflowAction(BambooWorkflowAction):
         status_workflow = ResultsFilterableMenu(args)
         return status_workflow.run()
 
-    def execute(self, args, cmd_pressed, shift_pressed):
+    def execute(self, args, ctrl_pressed, shift_pressed):
         import webbrowser
         build_result_key, plan_key = args[-2], args[-1]
-
-        if cmd_pressed:
+        if ctrl_pressed:
             build_results = get_data_from_cache(STATUS_CACHE_KEY, UPDATE_INTERVAL_STATUS)
             build_result = next((br for br in build_results if br.build_result_key == build_result_key), None)
             webbrowser.open(build_result.artifact_href)

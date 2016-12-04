@@ -29,7 +29,7 @@ class HelpWorkflowAction(BambooWorkflowAction):
         )
         workflow().add_item('Main menu', autocomplete='', icon=icons.GO_BACK)
 
-    def execute(self, args, cmd_pressed, shift_pressed):
+    def execute(self, args, ctrl_pressed, shift_pressed):
         import webbrowser
         if 'version' in args:
             webbrowser.open('https://github.com/mibexsoftware/alfred-bamboo-workflow/releases/tag/{}'

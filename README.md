@@ -23,7 +23,8 @@ Get it from the [releases][releases] tab and download the `atlassian-bamboo-work
 Start typing `bamboo` in Alfred and you will be guided by a menu.
 
 Please note that you have special actions available for Bamboo build results: use `SHIFT+ENTER` to trigger a build for
-the plan and `CMD+ENTER` to download the first artifact of the build result.
+the plan and `CTRL+ENTER` to download the first artifact of the build result. Also, you can use `SHIFT+ENTER` to stop
+builds in the dashboard menu.
 
 
 ## Configuration ##

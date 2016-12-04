@@ -35,7 +35,7 @@ def route(args):  # e.g., args = ":config sethost http://localhost,--exec"
         handler = WORKFLOW_ACTIONS.get(action, IndexWorkflowAction)
 
     if '--exec' in args:
-        handler().execute(command, cmd_pressed='--cmd' in args, shift_pressed='--shift' in args)
+        handler().execute(command, ctrl_pressed='--cmd' in args, shift_pressed='--shift' in args)
     else:  # show menu
         handler().menu(command)
         _notify_if_upgrade_available()

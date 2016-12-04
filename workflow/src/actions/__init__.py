@@ -95,7 +95,7 @@ class BambooWorkflowAction(object):
     def menu(self, args):
         raise NotImplementedError
 
-    def execute(self, args, cmd_pressed, shift_pressed):
+    def execute(self, args, ctrl_pressed, shift_pressed):
         pass  # not every action can be executed
 
 

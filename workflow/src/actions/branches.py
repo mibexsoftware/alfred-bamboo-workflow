@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from src.actions import BambooFilterableMenu, HOST_URL, PLANS_CACHE_KEY, UPDATE_INTERVAL_PLANS, \
-    BambooWorkflowAction
+    BambooWorkflowAction, build_bamboo_facade
 from src.util import workflow
 
 
@@ -16,6 +16,9 @@ class BranchesFilterableMenu(BambooFilterableMenu):
                             subtitle=branch.description,
                             largetext=branch.name,
                             arg=':branches ' + branch.key,
+                            modifier_subtitles={
+                                u'shift': u'Trigger build execution for this plan branch'
+                            },  # `cmd``, ``ctrl``, ``shift``, ``alt`` and ``fn``
                             copytext='{}/browse/{}'.format(workflow().settings.get(HOST_URL), branch.key),
                             valid=True)
 
@@ -42,8 +45,16 @@ class BranchesWorkflowAction(BambooWorkflowAction):
         branch_workflow = BranchesFilterableMenu(args)
         return branch_workflow.run()
 
-    def execute(self, args, cmd_pressed, shift_pressed):
-        import webbrowser
+    def execute(self, args, ctrl_pressed, shift_pressed):
         branch_key = args[-1]
-        branch_browse_url = '{}/browse/{}'.format(workflow().settings.get(HOST_URL), branch_key)
-        webbrowser.open(branch_browse_url)
+        if shift_pressed:
+            try:
+                facade = build_bamboo_facade()
+                facade.trigger_build(branch_key)
+                print('Successfully triggered build for {}'.format(branch_key))
+            except Exception, e:
+                print('Failed to trigger build for {}: {}'.format(branch_key, str(e)))
+        else:
+            import webbrowser
+            branch_browse_url = '{}/browse/{}'.format(workflow().settings.get(HOST_URL), branch_key)
+            webbrowser.open(branch_browse_url)

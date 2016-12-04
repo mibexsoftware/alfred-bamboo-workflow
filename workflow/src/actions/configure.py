@@ -85,7 +85,7 @@ class ConfigureWorkflowAction(BambooWorkflowAction):
             )
             workflow().add_item('Main menu', autocomplete='', icon=icons.GO_BACK)
 
-    def execute(self, args, cmd_pressed, shift_pressed):
+    def execute(self, args, ctrl_pressed, shift_pressed):
         if 'sethost' in args:
             workflow().settings[HOST_URL] = args[-1]
             print('New Bamboo host: {}'.format(args[-1]))

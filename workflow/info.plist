@@ -17,6 +17,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>875CA640-69A5-4A45-A0F5-B6FF9C1BC05A</key>
@@ -25,9 +27,11 @@
 				<key>destinationuid</key>
 				<string>A1DB94F3-D97B-4348-9288-1872F81DA7C6</string>
 				<key>modifiers</key>
-				<integer>1048576</integer>
+				<integer>262144</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
@@ -36,6 +40,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
@@ -44,6 +50,8 @@
 				<integer>131072</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>A1DB94F3-D97B-4348-9288-1872F81DA7C6</key>
@@ -55,6 +63,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>E951972D-5C2C-487D-BE76-C6C160CCBE69</key>
@@ -66,6 +76,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>F08086A0-5EE3-4B3F-954C-48CF14E19989</key>
@@ -77,6 +89,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -104,6 +118,10 @@
 # you can generate a log file to help me. Modify the
 # first line here so it looks like this:
 # python -msrc.bamboo_workflow "{query}" --exec --cmd | tee ~/Desktop/alfred-bamboo-workflow-commit.log</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -112,7 +130,7 @@
 			<key>uid</key>
 			<string>A1DB94F3-D97B-4348-9288-1872F81DA7C6</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -128,6 +146,10 @@
 # you can generate a log file to help me. Modify the
 # first line here so it looks like this:
 # python -msrc.bamboo_workflow "{query}" --exec | tee ~/Desktop/alfred-bamboo-workflow-commit.log</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -136,11 +158,13 @@
 			<key>uid</key>
 			<string>402AC02A-801E-4177-8757-DF81C5CB7705</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
@@ -155,6 +179,8 @@
 				<integer>0</integer>
 				<key>queuemode</key>
 				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
 				<key>script</key>
 				<string>python -msrc.bamboo_workflow "{query}"
 
@@ -162,6 +188,10 @@
 # you can generate a log file to help me. Modify the
 # first line here so it looks like this:
 # python -msrc.bamboo_workflow "{query}" | tee ~/Desktop/alfred-bamboo-workflow.log</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>subtext</key>
 				<string>Search for Bamboo projects, plans, build results and more</string>
 				<key>title</key>
@@ -176,7 +206,7 @@
 			<key>uid</key>
 			<string>875CA640-69A5-4A45-A0F5-B6FF9C1BC05A</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -185,11 +215,7 @@
 				<false/>
 				<key>onlyshowifquerypopulated</key>
 				<true/>
-				<key>output</key>
-				<integer>0</integer>
 				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
 				<false/>
 				<key>text</key>
 				<string>{query}</string>
@@ -201,7 +227,7 @@
 			<key>uid</key>
 			<string>8C9B4315-1D89-4209-AE0E-0768D0F2D6C3</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -210,6 +236,10 @@
 				<integer>0</integer>
 				<key>argument</key>
 				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
 				<key>hotkey</key>
 				<integer>0</integer>
 				<key>hotmod</key>
@@ -228,7 +258,7 @@
 			<key>uid</key>
 			<string>F08086A0-5EE3-4B3F-954C-48CF14E19989</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -244,6 +274,10 @@
 # you can generate a log file to help me. Modify the
 # first line here so it looks like this:
 # python -msrc.bamboo_workflow "{query}" --exec --shift | tee ~/Desktop/alfred-bamboo-workflow-commit.log</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -252,7 +286,7 @@
 			<key>uid</key>
 			<string>E951972D-5C2C-487D-BE76-C6C160CCBE69</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -269,31 +303,43 @@ Thanks to Dean Jackson for building the awesome Python library Alfred Workflow. 
 	<dict>
 		<key>402AC02A-801E-4177-8757-DF81C5CB7705</key>
 		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
 			<key>ypos</key>
 			<real>120</real>
 		</dict>
 		<key>875CA640-69A5-4A45-A0F5-B6FF9C1BC05A</key>
 		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
 			<key>ypos</key>
 			<real>120</real>
 		</dict>
 		<key>8C9B4315-1D89-4209-AE0E-0768D0F2D6C3</key>
 		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
 			<key>ypos</key>
 			<real>120</real>
 		</dict>
 		<key>A1DB94F3-D97B-4348-9288-1872F81DA7C6</key>
 		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
 		<key>E951972D-5C2C-487D-BE76-C6C160CCBE69</key>
 		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
 			<key>ypos</key>
 			<real>230</real>
 		</dict>
 		<key>F08086A0-5EE3-4B3F-954C-48CF14E19989</key>
 		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
 			<key>ypos</key>
 			<real>120</real>
 		</dict>

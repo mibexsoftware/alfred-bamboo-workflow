@@ -27,7 +27,7 @@ class ProjectWorkflowAction(BambooWorkflowAction):
         project_workflow = ProjectsFilterableMenu(args)
         return project_workflow.run()
 
-    def execute(self, args, cmd_pressed, shift_pressed):
+    def execute(self, args, ctrl_pressed, shift_pressed):
         import webbrowser
         project_key = args[-1]
         project_browse_url = '{}/browse/{}'.format(workflow().settings.get(HOST_URL), project_key)
