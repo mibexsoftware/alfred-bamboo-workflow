@@ -10,7 +10,7 @@ class IndexWorkflowAction(BambooWorkflowAction):
             'Bamboo dashboard',
             'See the status of queued and running builds and your build agents',
             autocomplete=':dashboard ',
-            icon=icons.STATUS
+            icon=icons.HOST
         )
         workflow().add_item(
             'Search for Bamboo projects',
