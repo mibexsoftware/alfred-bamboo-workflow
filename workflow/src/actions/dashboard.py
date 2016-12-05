@@ -23,9 +23,8 @@ class DashboardWorkflowAction(BambooWorkflowAction):
                                     largetext=q['messageType'],
                                     icon=self._icon_for_build_status(q['messageType']),
                                     arg=':dashboard {}'.format(q['resultKey']),
-                                    modifier_subtitles={
-                                        u'shift': u'Stop currently running build',
-                                    },  # `cmd``, ``ctrl``, ``shift``, ``alt`` and ``fn``
+                                    modifier_subtitles={u'shift': u'Stop currently running build'},
+                                    # `cmd``, ``ctrl``, ``shift``, ``alt`` and ``fn``
                                     valid=True)
             except:
                 # sometimes the build results JSON does not contain proper build items

@@ -19,9 +19,8 @@ class PlansFilterableMenu(BambooFilterableMenu):
                             subtitle=plan.description,
                             largetext=plan.name,
                             arg=':plans ' + plan.plan_key,
-                            modifier_subtitles={
-                                u'shift': u'Trigger build execution for this plan'
-                            },  # `cmd``, ``ctrl``, ``shift``, ``alt`` and ``fn``
+                            modifier_subtitles={u'shift': u'Trigger build execution for this plan'},
+                            # `cmd``, ``ctrl``, ``shift``, ``alt`` and ``fn``
                             copytext='{}/browse/{}'.format(workflow().settings.get(HOST_URL), plan.plan_key),
                             valid=True)
 

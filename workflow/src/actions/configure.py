@@ -81,7 +81,7 @@ class ConfigureWorkflowAction(BambooWorkflowAction):
             workflow().add_item(
                 'Switch theme',
                 'Toggle between light and dark icons',
-                arg = ':config switchtheme', valid = True, icon = icons.SWITCH_THEME
+                arg=':config switchtheme', valid=True, icon=icons.SWITCH_THEME
             )
             workflow().add_item('Main menu', autocomplete='', icon=icons.GO_BACK)
 

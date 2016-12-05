@@ -54,8 +54,7 @@ class BambooFacade(object):
         build_results = [BuildResult.from_json(json) for json in self._page(url=self._bamboo_url('/result'),
                                                                             params={
                                                                                 'expand': 'results.result.artifacts',
-                                                                                'max-result': 100
-                                                                            },
+                                                                                'max-result': 100},
                                                                             result_name='result',
                                                                             prefix='results')]
         build_results.sort(key=lambda x: iso8601.parse_date(x.completed_date), reverse=True)
